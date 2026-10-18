@@ -181,3 +181,114 @@ nav a {
         font-size: 14px;
     }
 }
+
+/* Commit 4: Skills and Projects page */
+
+.skills-page {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+.skills-page h1 {
+    text-align: center;
+}
+
+.skills-page h1 span {
+    color: #234b8b;
+}
+
+.skills-intro {
+    max-width: 700px;
+    margin: 0 auto 35px;
+    text-align: center;
+    line-height: 1.8;
+    color: #555;
+}
+
+.skills-section {
+    margin-bottom: 40px;
+}
+
+.skills-section > h2 {
+    color: #234b8b;
+    margin-bottom: 20px;
+}
+
+/* Skill cards */
+.skills-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+}
+
+.skill-card {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid #e2e7f0;
+}
+
+.skill-card h3 {
+    color: #234b8b;
+    margin-top: 0;
+}
+
+.skill-card p {
+    color: #555;
+    line-height: 1.6;
+}
+
+/* Project cards */
+.projects-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.project-card {
+    background-color: white;
+    padding: 22px;
+    border-radius: 10px;
+    border: 1px solid #e2e7f0;
+}
+
+.project-card h3 {
+    color: #234b8b;
+    margin-top: 0;
+}
+
+.project-card p {
+    color: #555;
+    line-height: 1.7;
+}
+
+.project-tech {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.project-card a {
+    display: inline-block;
+    margin-top: 10px;
+    color: #234b8b;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.project-card a:hover {
+    text-decoration: underline;
+}
+
+/* Mobile layout */
+@media (max-width: 700px) {
+    .skills-page {
+        padding: 15px;
+        margin: 20px auto;
+    }
+
+    .skills-list,
+    .projects-list {
+        grid-template-columns: 1fr;
+    }
+}
