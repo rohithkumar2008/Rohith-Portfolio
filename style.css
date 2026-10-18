@@ -292,3 +292,70 @@ nav a {
         grid-template-columns: 1fr;
     }
 }
+
+/* Commit 5: Dark mode styles */
+
+#themeButton {
+    padding: 9px 14px;
+    background-color: #234b8b;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#themeButton:hover {
+    background-color: #16315c;
+}
+
+/* Dark theme for the whole page */
+body.dark-mode {
+    background-color: #171923;
+    color: #f1f1f1;
+}
+
+/* Header and footer */
+body.dark-mode header,
+body.dark-mode footer {
+    background-color: #222532;
+    color: #f1f1f1;
+}
+
+/* Navigation links */
+body.dark-mode nav a {
+    color: #c5d8ff;
+}
+
+/* Headings and paragraphs */
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3 {
+    color: #f1f1f1;
+}
+
+body.dark-mode h1 span,
+body.dark-mode .about-card h2,
+body.dark-mode .skills-section > h2 {
+    color: #8eb5ff;
+}
+
+body.dark-mode p,
+body.dark-mode .description,
+body.dark-mode .about-card p,
+body.dark-mode .skill-card p,
+body.dark-mode .project-card p {
+    color: #d0d0d0;
+}
+
+/* Cards */
+body.dark-mode .about-card,
+body.dark-mode .skill-card,
+body.dark-mode .project-card {
+    background-color: #222532;
+    border-color: #383d4d;
+}
+
+/* Closing message */
+body.dark-mode .closing-message {
+    color: #8eb5ff;
+}
