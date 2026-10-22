@@ -96,7 +96,7 @@ The website can be updated by pushing changes to the connected GitHub repository
 
 - **Portfolio:** https://rohith218.vercel.app/
 - **LinkedIn:** https://www.linkedin.com/in/rohithkumar-kumaresan/
-- **GitHub:** Add your actual GitHub profile URL here.
+- **GitHub:** https://github.com/rohithkumar2008
 
 ## Author
 
