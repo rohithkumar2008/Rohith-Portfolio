@@ -2,9 +2,11 @@
 
 Welcome to my personal portfolio website!
 
-This project is a simple, responsive personal portfolio developed using HTML, CSS, and JavaScript. It showcases my introduction, educational background, technical skills, projects, and interests in software development.
+This is a simple, responsive portfolio built using HTML, CSS, and JavaScript. It showcases my introduction, educational background, technical skills, projects, and interests in software development.
 
-The main purpose of this project is to practise front-end web development and demonstrate my skills as a Computer Science student.
+## Live Website
+
+**Portfolio:** https://rohith218.vercel.app/
 
 ## About Me
 
@@ -18,19 +20,19 @@ I am interested in software development, programming, hackathons, and exploring 
 - **About Me:** Educational background, hometown, interests, and career goals.
 - **Skills & Projects:** Technical skills, project descriptions, and hackathon experience.
 - **Dark Mode:** Switch between light and dark themes using JavaScript.
-- **Responsive Design:** Basic responsive layout for desktop and mobile screens.
-- **Git Version Control:** Development progress tracked through meaningful commits.
+- **Responsive Design:** Layout designed for desktop and mobile screens.
+- **Version Control:** Project development tracked through Git commits.
 
 ## Technologies Used
 
 | Technology | Purpose |
 |---|---|
-| HTML5 | Structure and content of the website |
+| HTML5 | Website structure and content |
 | CSS3 | Styling, layout, and responsive design |
 | JavaScript | Interactive dark mode feature |
-| Git | Version control and tracking changes |
-| GitHub | Source code hosting and commit history |
-| Netlify / Vercel | Website deployment |
+| Git | Version control |
+| GitHub | Source code hosting |
+| Vercel | Website deployment |
 
 ## Project Structure
 
@@ -48,31 +50,23 @@ rohithkumar-portfolio/
     └── rohith.jpg
 ```
 
-## How to Run the Project
+## How to Run Locally
 
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/YOUR_USERNAME/rohithkumar-portfolio.git
+   git clone YOUR_GITHUB_REPOSITORY_URL
    ```
 
-2. Open the project folder:
-
-   ```bash
-   cd rohithkumar-portfolio
-   ```
-
-3. Open `index.html` in your web browser.
-
-4. Navigate between Home, About Me, and Skills & Projects.
-
-5. Test the dark mode button to see the JavaScript feature in action.
+2. Open the project folder.
+3. Open `index.html` in your browser.
+4. Navigate between the pages and test the dark mode feature.
 
 No additional packages or build tools are required.
 
 ## Git Commit History
 
-This project is developed step by step to demonstrate version control and incremental development.
+The project is developed incrementally to demonstrate version control.
 
 1. `Create basic portfolio home page`
 2. `Improve home page styling and responsive layout`
@@ -80,34 +74,29 @@ This project is developed step by step to demonstrate version control and increm
 4. `Add skills and projects page`
 5. `Add JavaScript dark mode switcher`
 6. `Update portfolio name to Rohithkumar`
-
-Each commit records a specific improvement to the project.
+7. `Add project README documentation`
 
 ## Deployment
 
-This website can be deployed using Netlify or Vercel.
+This portfolio is deployed using Vercel.
 
-**Deployment steps:**
+**Live URL:** https://rohith218.vercel.app/
 
-1. Push the project to GitHub.
-2. Import the GitHub repository into your preferred hosting platform.
-3. Configure it as a static website with the project root as the publish directory.
-4. Deploy the website and copy the public URL.
-
-**Live Website:** Add your deployed website URL here after deployment.
+The website can be updated by pushing changes to the connected GitHub repository.
 
 ## Future Improvements
 
 - Add a contact form.
 - Improve mobile navigation.
-- Save the theme preference using browser local storage.
-- Add more projects with GitHub links.
+- Save the selected theme using local storage.
+- Add more projects and GitHub links.
 - Improve accessibility and responsive design.
 
 ## Connect With Me
 
-- **GitHub:** https://github.com/YOUR_USERNAME
-- **LinkedIn:** Add your LinkedIn profile URL here.
+- **Portfolio:** https://rohith218.vercel.app/
+- **LinkedIn:** https://www.linkedin.com/in/rohithkumar-kumaresan/
+- **GitHub:** Add your actual GitHub profile URL here.
 
 ## Author
 
@@ -117,6 +106,6 @@ KG College of Arts and Science, Coimbatore
 
 ---
 
-This portfolio is developed as a learning project to practise HTML, CSS, JavaScript, Git, and GitHub.
+This portfolio is a learning project created to practise HTML, CSS, JavaScript, Git, GitHub, and website deployment.
 
 Thank you for visiting my portfolio repository!
