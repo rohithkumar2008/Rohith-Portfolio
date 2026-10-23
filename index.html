@@ -55,7 +55,48 @@
         </div>
     </main>
 
-    
+    <section class="project-carousel" aria-label="Featured projects">
+        <div class="carousel-heading">
+            <p class="welcome">FEATURED WORK</p>
+            <h2>My <span>Projects</span></h2>
+        </div>
+
+        <div class="carousel-window">
+            <div class="carousel-track">
+                <article class="carousel-slide">
+                    <p class="slide-number">01</p>
+                    <h3>GreenPrompt</h3>
+                    <p>Routes prompts to appropriately sized AI models to help reduce unnecessary resource usage.</p>
+                    <p class="slide-tech">HTML · CSS · JavaScript · Python</p>
+                    <a href="https://github.com/Jarvis-Steven/GreenPrompt" target="_blank" rel="noopener noreferrer">View project</a>
+                </article>
+
+                <article class="carousel-slide">
+                    <p class="slide-number">02</p>
+                    <h3>Appointment Scheduling System</h3>
+                    <p>A Java mini project for organising appointments and helping users keep track of reminders.</p>
+                    <p class="slide-tech">Java</p>
+                </article>
+
+                <article class="carousel-slide">
+                    <p class="slide-number">03</p>
+                    <h3>Visual AI Cursor</h3>
+                    <p>An AI-assisted cursor concept that guides users through computer tasks using visual support.</p>
+                    <p class="slide-tech">Python · OpenCV · Tkinter</p>
+                </article>
+            </div>
+        </div>
+
+        <div class="carousel-controls">
+            <button class="carousel-button" id="previousSlide" type="button" aria-label="Show previous project">←</button>
+            <div class="carousel-dots" aria-label="Choose a project">
+                <button class="carousel-dot active" type="button" aria-label="Show project 1" aria-current="true"></button>
+                <button class="carousel-dot" type="button" aria-label="Show project 2"></button>
+                <button class="carousel-dot" type="button" aria-label="Show project 3"></button>
+            </div>
+            <button class="carousel-button" id="nextSlide" type="button" aria-label="Show next project">→</button>
+        </div>
+    </section>
 
 <script src="script.js"></script>
 </body>

@@ -80,6 +80,70 @@ window.addEventListener("scroll", function () {
     }
 });
 
+
+/* ---- Featured projects carousel (home page only) ---- */
+
+const carouselTrack = document.querySelector(".carousel-track");
+
+if (carouselTrack) {
+    const carousel = document.querySelector(".project-carousel");
+    const slides = document.querySelectorAll(".carousel-slide");
+    const dots = document.querySelectorAll(".carousel-dot");
+    const previousSlide = document.getElementById("previousSlide");
+    const nextSlide = document.getElementById("nextSlide");
+    let currentSlide = 0;
+    let carouselTimer;
+
+    function showSlide(index) {
+        currentSlide = (index + slides.length) % slides.length;
+        carouselTrack.style.transform = "translateX(-" + (currentSlide * 100) + "%)";
+
+        for (let i = 0; i < dots.length; i++) {
+            const isCurrent = i === currentSlide;
+            dots[i].classList.toggle("active", isCurrent);
+            dots[i].setAttribute("aria-current", isCurrent ? "true" : "false");
+        }
+    }
+
+    function startCarousel() {
+        carouselTimer = setInterval(function () {
+            showSlide(currentSlide + 1);
+        }, 4500);
+    }
+
+    function restartCarousel() {
+        clearInterval(carouselTimer);
+        startCarousel();
+    }
+
+    previousSlide.addEventListener("click", function () {
+        showSlide(currentSlide - 1);
+        restartCarousel();
+    });
+
+    nextSlide.addEventListener("click", function () {
+        showSlide(currentSlide + 1);
+        restartCarousel();
+    });
+
+    for (let i = 0; i < dots.length; i++) {
+        dots[i].addEventListener("click", function () {
+            showSlide(i);
+            restartCarousel();
+        });
+    }
+
+    carousel.addEventListener("mouseenter", function () {
+        clearInterval(carouselTimer);
+    });
+
+    carousel.addEventListener("mouseleave", startCarousel);
+
+    if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        startCarousel();
+    }
+}
+
 // go back to the top smoothly when clicked
 topButton.addEventListener("click", function () {
     window.scrollTo({ top: 0, behavior: "smooth" });
