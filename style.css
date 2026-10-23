@@ -359,3 +359,139 @@ body.dark-mode .project-card {
 body.dark-mode .closing-message {
     color: #8eb5ff;
 }
+
+
+/* =====================================================
+   NEW: Styles for the animations
+   ===================================================== */
+
+/* page fades in when it opens (CSS only) */
+main {
+    animation: pageFade 0.7s ease;
+}
+
+@keyframes pageFade {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Basic 2: the link of the page you are on */
+nav a.active {
+    color: #234b8b;
+    font-weight: bold;
+    border-bottom: 2px solid #234b8b;
+    padding-bottom: 3px;
+}
+
+body.dark-mode nav a.active {
+    color: #8eb5ff;
+    border-bottom-color: #8eb5ff;
+}
+
+/* smooth colour change when switching dark mode */
+body,
+header,
+footer,
+.about-card,
+.skill-card,
+.project-card {
+    transition: background-color 0.4s, color 0.4s;
+}
+
+/* Basic 3: back to top button */
+#topButton {
+    position: fixed;
+    right: 24px;
+    bottom: 24px;
+    width: 44px;
+    height: 44px;
+    border: none;
+    border-radius: 50%;
+    background-color: #234b8b;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+
+    /* hidden until JavaScript adds "show" */
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(10px);
+    transition: opacity 0.3s, transform 0.3s, background-color 0.2s;
+}
+
+#topButton.show {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
+#topButton:hover {
+    background-color: #16315c;
+}
+
+/* Moderate 1: cards fade up when scrolled to */
+.reveal {
+    opacity: 0;
+    transform: translateY(26px);
+    transition: opacity 0.6s, transform 0.6s, box-shadow 0.25s;
+}
+
+.reveal.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* small lift when the mouse is on a card */
+.skill-card:hover,
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 24px #00000014;
+}
+
+/* Moderate 2: blinking cursor while typing */
+.typing {
+    border-right: 3px solid #234b8b;
+    display: inline-block;
+    animation: blink 0.8s step-end infinite;
+}
+
+@keyframes blink {
+    50% {
+        border-color: transparent;
+    }
+}
+
+/* Moderate 3: progress bar */
+#progressBar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 4px;
+    background-color: #234b8b;
+    z-index: 20;
+}
+
+body.dark-mode #progressBar {
+    background-color: #8eb5ff;
+}
+
+/* people who turned off animations on their device */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation: none !important;
+        transition: none !important;
+    }
+
+    .reveal {
+        opacity: 1;
+        transform: none;
+    }
+}
