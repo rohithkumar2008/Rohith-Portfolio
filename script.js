@@ -144,6 +144,119 @@ if (carouselTrack) {
     }
 }
 
+
+/* ---- Simple interactive welcome (home page only) ---- */
+
+const helloButton = document.getElementById("helloButton");
+const helloMessage = document.getElementById("helloMessage");
+
+if (helloButton && helloMessage) {
+    helloButton.addEventListener("click", function () {
+        helloMessage.textContent = "Thanks for visiting! I hope you enjoy exploring my portfolio.";
+        helloButton.textContent = "Nice to meet you!";
+        helloButton.disabled = true;
+    });
+}
+
+
+/* ---- Click a skill to learn what it represents ---- */
+
+const skillCards = document.querySelectorAll(".skill-card");
+
+if (skillCards.length > 0) {
+    const skillsList = document.querySelector(".skills-list");
+    const skillFeedback = document.createElement("p");
+    skillFeedback.className = "skill-feedback";
+    skillFeedback.setAttribute("aria-live", "polite");
+    skillsList.insertAdjacentElement("afterend", skillFeedback);
+
+    function selectSkill(card) {
+        for (let i = 0; i < skillCards.length; i++) {
+            skillCards[i].classList.remove("selected");
+        }
+
+        card.classList.add("selected");
+        const skillName = card.querySelector("h3").textContent;
+        const skillDescription = card.querySelector("p").textContent;
+        skillFeedback.textContent = skillName + ": " + skillDescription;
+    }
+
+    for (let i = 0; i < skillCards.length; i++) {
+        const card = skillCards[i];
+        card.classList.add("interactive-skill");
+        card.setAttribute("role", "button");
+        card.setAttribute("tabindex", "0");
+        card.setAttribute("aria-label", "Learn about " + card.querySelector("h3").textContent);
+
+        card.addEventListener("click", function () {
+            selectSkill(card);
+        });
+
+        card.addEventListener("keydown", function (event) {
+            if (event.key === "Enter" || event.key === " ") {
+                event.preventDefault();
+                selectSkill(card);
+            }
+        });
+    }
+}
+
+
+/* ---- Flip the profile card on tap or keyboard ---- */
+
+const profileCard = document.querySelector(".profile-card");
+
+if (profileCard) {
+    profileCard.addEventListener("click", function () {
+        profileCard.classList.toggle("flipped");
+    });
+
+    profileCard.addEventListener("keydown", function (event) {
+        if (event.key === "Enter" || event.key === " ") {
+            event.preventDefault();
+            profileCard.classList.toggle("flipped");
+        }
+    });
+}
+
+
+/* ---- Contact form validation and email request ---- */
+
+const contactForm = document.getElementById("contactForm");
+
+if (contactForm) {
+    const contactEmail = document.getElementById("contactEmail");
+    const contactMobile = document.getElementById("contactMobile");
+    const formStatus = document.getElementById("formStatus");
+
+    contactMobile.addEventListener("input", function () {
+        contactMobile.value = contactMobile.value.replace(/\D/g, "").slice(0, 10);
+    });
+
+    contactForm.addEventListener("submit", function (event) {
+        event.preventDefault();
+        const emailIsValid = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/.test(contactEmail.value.trim());
+        const mobileIsValid = /^\d{10}$/.test(contactMobile.value);
+
+        contactEmail.setCustomValidity(emailIsValid ? "" : "Enter a valid email such as name@mail.com.");
+        contactMobile.setCustomValidity(mobileIsValid ? "" : "Enter exactly 10 digits for the mobile number.");
+
+        if (!contactForm.checkValidity()) {
+            contactForm.reportValidity();
+            return;
+        }
+
+        const recipient = contactForm.dataset.recipient;
+        const name = document.getElementById("contactName").value.trim();
+        const message = document.getElementById("contactMessage").value.trim();
+        const subject = "Portfolio contact request from " + name;
+        const body = "Name: " + name + "\nEmail: " + contactEmail.value.trim() + "\nMobile: " + contactMobile.value + "\n\nMessage:\n" + message;
+
+        formStatus.textContent = "Your email app is opening with your request ready to send.";
+        window.location.href = "mailto:" + encodeURIComponent(recipient) + "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
+    });
+}
+
 // go back to the top smoothly when clicked
 topButton.addEventListener("click", function () {
     window.scrollTo({ top: 0, behavior: "smooth" });

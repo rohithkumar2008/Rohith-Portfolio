@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | Rohithkumar</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h2>Rohithkumar</h2>
+
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="about.html">About Me</a>
+            <a href="skills.html">Skills & Projects</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+
+        <button id="themeButton">Dark Mode</button>
+    </header>
+
+    <main class="contact-page">
+        <section class="contact-intro">
+            <p class="welcome">LET'S CONNECT</p>
+            <h1>Send Me a <span>Message</span></h1>
+            <p>Share your details and message. After validation, your email app will open with the request ready to send.</p>
+        </section>
+
+        <section class="contact-card">
+            <form id="contactForm" data-recipient="your-email@example.com" novalidate>
+                <label for="contactName">Your name</label>
+                <input id="contactName" name="name" type="text" autocomplete="name" minlength="2" required placeholder="Enter your name">
+
+                <label for="contactEmail">Email address</label>
+                <input id="contactEmail" name="email" type="email" autocomplete="email" required pattern="^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$" placeholder="name@mail.com">
+                <small>Use an email format such as name@mail.com.</small>
+
+                <label for="contactMobile">Mobile number</label>
+                <input id="contactMobile" name="mobile" type="tel" inputmode="numeric" autocomplete="tel" required pattern="[0-9]{10}" minlength="10" maxlength="10" placeholder="10-digit mobile number">
+                <small>Enter exactly 10 digits.</small>
+
+                <label for="contactMessage">Message</label>
+                <textarea id="contactMessage" name="message" rows="5" required minlength="10" placeholder="Write your message here"></textarea>
+
+                <button class="send-button" type="submit">Send Request</button>
+                <p class="form-status" id="formStatus" aria-live="polite"></p>
+            </form>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

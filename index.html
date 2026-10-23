@@ -16,6 +16,7 @@
         <a href="index.html">Home</a>
         <a href="about.html">About Me</a>
         <a href="skills.html">Skills & Projects</a>
+        <a href="contact.html">Contact</a>
     </nav>
 
     <button id="themeButton">Dark Mode</button>
@@ -23,7 +24,20 @@
 
     <main class="home">
         <div class="profile">
-            <img src="images/rohith.jpg" alt="Rohith's profile photo">
+            <div class="profile-card" tabindex="0" role="button" aria-label="Show profile details">
+                <div class="profile-card-inner">
+                    <div class="profile-card-front">
+                        <img src="images/rohith.jpg" alt="Rohith's profile photo">
+                    </div>
+                    <div class="profile-card-back">
+                        <p class="profile-label">STUDENT PROFILE</p>
+                        <h2>Rohithkumar</h2>
+                        <p>B.Sc. Computer Science</p>
+                        <p>KG College of Arts and Science, Coimbatore</p>
+                        <span>Hover or tap to flip back</span>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <div class="intro">
@@ -52,6 +66,9 @@
                 <a href="https://www.linkedin.com/in/rohithkumar-kumaresan"
                    target="_blank">LinkedIn</a>
             </div>
+
+            <button class="hello-button" id="helloButton" type="button">Say Hello 👋</button>
+            <p class="hello-message" id="helloMessage" aria-live="polite"></p>
         </div>
     </main>
 

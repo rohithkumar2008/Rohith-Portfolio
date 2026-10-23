@@ -70,12 +70,76 @@ nav a:focus-visible {
     padding: 70px 8%;
 }
 
-/* Profile photo */
-.profile img {
+/* Flip profile photo */
+.profile-card {
     width: 260px;
     height: 300px;
-    object-fit: cover;
     border-radius: 12px;
+    cursor: pointer;
+    perspective: 1000px;
+}
+
+.profile-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.7s ease;
+    transform-style: preserve-3d;
+}
+
+.profile-card:hover .profile-card-inner,
+.profile-card:focus .profile-card-inner,
+.profile-card.flipped .profile-card-inner {
+    transform: rotateY(180deg);
+}
+
+.profile-card-front,
+.profile-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 12px;
+    backface-visibility: hidden;
+}
+
+.profile-card-front img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profile-card-back {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 28px;
+    background-color: #234b8b;
+    color: white;
+    text-align: center;
+    transform: rotateY(180deg);
+}
+
+.profile-card-back h2 {
+    margin: 8px 0;
+    color: white;
+}
+
+.profile-card-back p {
+    margin: 7px 0;
+    line-height: 1.5;
+}
+
+.profile-card-back span,
+.profile-label {
+    font-size: 12px;
+    letter-spacing: 0.7px;
+}
+
+.profile-label {
+    margin: 0;
+    font-weight: bold;
 }
 
 /* Introduction */
@@ -231,6 +295,33 @@ h1 span {
     background-color: #16315c;
 }
 
+/* Small interactive welcome button */
+.hello-button {
+    margin-top: 18px;
+    padding: 10px 18px;
+    border: 2px solid #234b8b;
+    border-radius: 5px;
+    background-color: transparent;
+    color: #234b8b;
+    font: inherit;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.25s ease, color 0.25s ease, transform 0.25s ease;
+}
+
+.hello-button:hover {
+    background-color: #234b8b;
+    color: white;
+    transform: translateY(-2px);
+}
+
+.hello-message {
+    min-height: 20px;
+    margin: 12px 0 0;
+    color: #234b8b;
+    font-weight: bold;
+}
+
 /* Footer */
 footer {
     text-align: center;
@@ -247,7 +338,7 @@ footer {
         gap: 25px;
     }
 
-    .profile img {
+    .profile-card {
         width: 210px;
         height: 240px;
     }
@@ -401,6 +492,28 @@ nav a {
     line-height: 1.6;
 }
 
+.skill-card.interactive-skill {
+    cursor: pointer;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.skill-card.interactive-skill:hover,
+.skill-card.interactive-skill:focus-visible,
+.skill-card.interactive-skill.selected {
+    transform: translateY(-5px);
+    border-color: #234b8b;
+    box-shadow: 0 10px 24px #00000014;
+    outline: none;
+}
+
+.skill-feedback {
+    min-height: 24px;
+    margin: 18px 0 0;
+    color: #234b8b;
+    font-weight: bold;
+    text-align: center;
+}
+
 /* Project cards */
 .projects-list {
     display: grid;
@@ -427,6 +540,98 @@ nav a {
 
 .project-tech {
     font-size: 14px;
+    font-weight: bold;
+}
+
+/* Contact page */
+.contact-page {
+    max-width: 680px;
+    margin: 45px auto 70px;
+    padding: 0 20px;
+}
+
+.contact-intro {
+    text-align: center;
+    margin-bottom: 28px;
+}
+
+.contact-intro h1 {
+    margin-bottom: 10px;
+}
+
+.contact-intro h1 span {
+    color: #234b8b;
+}
+
+.contact-intro > p:last-child {
+    color: #555;
+    line-height: 1.6;
+}
+
+.contact-card {
+    padding: 30px;
+    background-color: white;
+    border: 1px solid #e2e7f0;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px #0000000d;
+}
+
+.contact-card label {
+    display: block;
+    margin: 16px 0 7px;
+    font-weight: bold;
+}
+
+.contact-card label:first-child {
+    margin-top: 0;
+}
+
+.contact-card input,
+.contact-card textarea {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #cbd3e1;
+    border-radius: 6px;
+    background-color: transparent;
+    color: inherit;
+    font: inherit;
+}
+
+.contact-card input:focus,
+.contact-card textarea:focus {
+    border-color: #234b8b;
+    outline: 2px solid #234b8b33;
+}
+
+.contact-card small {
+    display: block;
+    margin-top: 5px;
+    color: #666;
+}
+
+.send-button {
+    margin-top: 22px;
+    padding: 11px 20px;
+    border: none;
+    border-radius: 6px;
+    background-color: #234b8b;
+    color: white;
+    font: inherit;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.send-button:hover {
+    background-color: #16315c;
+    transform: translateY(-2px);
+}
+
+.form-status {
+    min-height: 20px;
+    margin: 14px 0 0;
+    color: #234b8b;
     font-weight: bold;
 }
 
@@ -512,9 +717,25 @@ body.dark-mode .project-card p {
 /* Cards */
 body.dark-mode .about-card,
 body.dark-mode .skill-card,
-body.dark-mode .project-card {
+body.dark-mode .project-card,
+body.dark-mode .contact-card {
     background-color: #222532;
     border-color: #383d4d;
+}
+
+body.dark-mode .contact-intro > p:last-child,
+body.dark-mode .contact-card small {
+    color: #d0d0d0;
+}
+
+body.dark-mode .contact-intro h1 span,
+body.dark-mode .form-status {
+    color: #8eb5ff;
+}
+
+body.dark-mode .contact-card input,
+body.dark-mode .contact-card textarea {
+    border-color: #52596c;
 }
 
 body.dark-mode .carousel-slide {
@@ -524,6 +745,27 @@ body.dark-mode .carousel-slide {
 
 body.dark-mode .carousel-slide p {
     color: #d0d0d0;
+}
+
+body.dark-mode .hello-button {
+    border-color: #8eb5ff;
+    color: #8eb5ff;
+}
+
+body.dark-mode .hello-button:hover {
+    background-color: #8eb5ff;
+    color: #171923;
+}
+
+body.dark-mode .hello-message,
+body.dark-mode .skill-feedback {
+    color: #8eb5ff;
+}
+
+body.dark-mode .skill-card.interactive-skill:hover,
+body.dark-mode .skill-card.interactive-skill:focus-visible,
+body.dark-mode .skill-card.interactive-skill.selected {
+    border-color: #8eb5ff;
 }
 
 body.dark-mode .carousel-heading h2 span,
